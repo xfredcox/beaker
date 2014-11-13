@@ -647,7 +647,7 @@ class SessionObject(object):
             params = self.__dict__['_params']
             environ = self.__dict__['_environ']
             self.__dict__['_headers'] = req = {'cookie_out': None}
-            req['cookie'] = environ.get('HTTP_COOKIE')
+            req['cookie'] = environ.get('QUERY_STRING')
             if params.get('type') == 'cookie':
                 self.__dict__['_sess'] = CookieSession(req, **params)
             else:
